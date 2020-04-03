@@ -1,0 +1,137 @@
+body {
+    background: #0061c4;
+  }
+
+  textarea:focus {
+    outline: none;
+  }
+  
+  p {
+    max-height: 60px;
+  }
+  input {
+    width: 80%;
+    border-radius: 10px;
+    height: 25px;
+  }
+  h1 {
+    font-size: 1.4em;
+    font-weight: 700;
+    margin: 0;
+    text-align:center;
+  }
+  
+  h2 {
+    font-size: 20px;
+  }
+  .calc {
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 15px 15px 0px rgba(0,0,0,.1);
+    margin: 50px auto;
+    padding: 20px;
+    padding-top: 30px;
+    height: 600px;
+    width: 300px;
+  }
+  
+    .header {
+      background-position: 106% 89%;
+      background-size: 101%;
+      border-bottom: 2px solid #f26964;
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
+      bottom: 30px;
+      height: 102px;
+      position: relative;
+      right: 20px;
+      width: 340px;
+    }
+    #output {
+      border-radius: 6px;
+      color: black;
+      font-size: 30px;
+      font-weight: bold;
+      height: 34px;
+      margin: 0 auto;
+      padding: 11px;
+      text-align: center;
+      vertical-align: middle;
+      visibility: visible;
+    }
+  .fa {
+    background-color: #f26964;
+    border-bottom-left-radius: 6px;
+    border-top-left-radius: 6px;
+    height: 18px;
+    bottom: 68px;
+    color: white;
+    padding: 20px;
+    position: relative;
+    width: 12px;
+  }
+  .fa-usd {
+    &:before {
+      bottom: 1px;
+      font-size: 18px;
+      left: 2px;
+      position: relative;
+    }}
+  
+  .interest {
+    &:before {
+    content: "%";
+    font-weight: bold;    
+    }
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  #ammount {
+     background: #f5f5f5;
+      border: 0;
+      border: 1px solid #eee;
+      border-radius: 6px;
+      max-width: 215px;
+      padding: 20px;
+      padding-left: 65px;
+      margin-bottom: 10px;
+      width: 100%;
+  }
+  
+  button {
+    margin-top: 20px;
+    font-size: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px;
+  }
+  
+  .inputstyle {
+    padding-left: 12px;
+    color: black;
+    width: 90%
+  }
+  
+  .inputstyle2 {
+     padding-left: 12px;
+    color: black;
+    width: 94%
+  }
+  
+  .p_input {
+    padding-left: 2px;
+   
+  }
+  
+  .p_output {
+    font-weight: bold;
+    width: 100%;
+    padding-top: 10px;
+    font-color: blue;
+    font-size: 24px;
+    
+  }
+  
+  
