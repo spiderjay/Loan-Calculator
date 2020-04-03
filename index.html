@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="calc">
+
+    <div>    <h1>WEOKIE Calculator</h1> </div>
+
+        <script src="calc.js"></script>
+      <div>
+          <h2>Loan Ammount:</h2>
+          <p class="p_input">
+          $ <input  class ="inputstyle" type="number" id="amount" min= "0"name="amount" placeholder="0" required>
+          </p>
+          <h2>Months:</h2>
+          <p class="p_input">
+            <input class ="inputstyle2" type="number" min="0" id="term" placeholder="0" required>
+          </p>
+          <h2>Estimated Credit Score:</h2>
+          <p class="p_input">
+            <input class ="inputstyle2" type="number" id="credit" placeholder="Estimated Credit Score" required>
+          </p>
+          <h2>Year of Vehicle:</h2>
+          <p class="p_input">
+            <input class ="inputstyle2" type="number" min="2010" id="yov" name="amount" placeholder="Year of Vehicle" required>
+          </p>
+          <p>
+            <center>
+            <button class="btn" onclick="calculator()">Calculate My Rates</button>
+            </center>
+          </p>
+        </form>
+          <div id="output" class='hidden'>
+            <p class= "p_output">Interest Rate: <span id="output1"></span>% </p>
+            <p class= "p_output">Monthly Payment: $<span id="output2" /></p>
+          </div>
+        </center>
+      </div>
+      
+      
+</body>
+</html>
