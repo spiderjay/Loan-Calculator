@@ -74,7 +74,7 @@ rate[5][2017][84] = 10.49;
 
 function getInterest(credit,yov,months) {
 
-    var c, y;
+    var c, y, interest;
 
     switch(true) {
       case (credit >= 740):
@@ -117,12 +117,12 @@ function getInterest(credit,yov,months) {
         if (months > ms && months <= m) {
             console.log("months is > "+ms+" and less than/eq to "+m);
             console.log("The rate is "+rate[c][y][m]);
+            interest = rate[c][y][m];
         }
         ms = m;
     });
 
-    //return rate[c][y][m];
-
+    return interest;
 }
 
 function getMontlyPayment(loan,rate,term){
@@ -131,17 +131,23 @@ function getMontlyPayment(loan,rate,term){
     return pay;
 }
 
-function calculator() {
-    var loan = parseFloat($('#amount').val());
-    var term = parseFloat($('#term').val());
-    var credit = parseFloat($('#credit').val());
-    var yov = parseFloat($('#yov').val());
-    var interest = parseFloat(getInterest(credit, yov, term));
-    var m_payment = (((loan * ((interest / 100) / 12) * ((1 +((interest / 100)/ 12)) ** term)/ (((1 + ((interest / 100)/ 12)) ** term) - 1))));
+$(document).ready(function(){
 
+    $('#loan-calc').submit(function(e){
+        e.preventDefault();
 
-    document.getElementById('output1').innerHTML = interest + '%';
-    document.getElementById('output2').innerHTML = m_payment.toFixed(2);
-    document.getElementById('output').classList.remove('hidden');
-}
+        var loan = parseInt($('#amount').val());
+        var term = parseInt($('#term').val());
+        var credit = parseInt($('#credit').val());
+        var yov = parseInt($('#yov').val());
+        var interest = parseFloat(getInterest(credit,yov,term));
+        console.log(interest);
+        var m_payment = (((loan * ((interest / 100) / 12) * ((1 +((interest / 100)/ 12)) ** term)/ (((1 + ((interest / 100)/ 12)) ** term) - 1))));
+
+        $('#output1').text(interest);
+        $('#output2').text(m_payment.toFixed(2));
+        $('#output').removeClass('hidden');
+    });
+
+});
 
