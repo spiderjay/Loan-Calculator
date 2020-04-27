@@ -114,15 +114,15 @@ function getInterest(credit,yov,months) {
     }
 
     var ms = 0;
-    rate[c][y].forEach(function(i,m) {
-        if (months > ms && months <= m) {
-            console.log("months is > "+ms+" and less than/eq to "+m);
-            console.log("The rate is "+rate[c][y][m]);
-            interest = rate[c][y][m];
+    rate[c][y].forEach(function(index,month) {
+        if (months > ms) {
+            console.log("months is > "+ms+" ... "+month);
+            interest = rate[c][y][month];
         }
-        ms = m;
+        ms = month;
     });
 
+    console.log("The rate is "+interest);
     return interest;
 }
 
@@ -157,4 +157,3 @@ $(document).ready(function(){
     });
 
 });
-
