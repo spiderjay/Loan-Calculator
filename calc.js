@@ -1,15 +1,16 @@
 
+// init objects
 let rate = [];
-var years = [2017, 2015, 2010]; // define year thresholds
+var years = [2017, 2015, 2010]; // define the year thresholds
 
 for (var i = 0; i < 6; i++) {
-    rate[i] = [];       // build credit tiers
+    rate[i] = [];       // build the credit tiers
     for (y in years) {  
-        rate[i][years[y]] = []; // build years
+        rate[i][years[y]] = []; // build the year objects
     }
 }
 
-// define rate matrix
+// define interest rate matrix
 
 rate[0][2010][48] = 3.49;
 rate[0][2010][60] = 3.49;
@@ -126,24 +127,30 @@ function getInterest(credit,yov,months) {
 }
 
 function getMontlyPayment(loan,rate,term){
-
+    // using original monthly payment calculation supplied
     var pay = ( ((loan * ((rate / 100) / 12) * ((1 +((rate / 100)/ 12)) ** term)/ (((1 + ((rate / 100)/ 12)) ** term) - 1))) );
     return pay;
 }
 
 $(document).ready(function(){
-
     $('#loan-calc').submit(function(e){
+        
+        // prevent the default form action
         e.preventDefault();
 
+        // get input values
         var loan = parseInt($('#amount').val());
         var term = parseInt($('#term').val());
         var credit = parseInt($('#credit').val());
         var yov = parseInt($('#yov').val());
+        
+        // get interest rate
         var interest = parseFloat(getInterest(credit,yov,term));
-        console.log(interest);
+        
+        // calculate monthly payment
         var m_payment = (((loan * ((interest / 100) / 12) * ((1 +((interest / 100)/ 12)) ** term)/ (((1 + ((interest / 100)/ 12)) ** term) - 1))));
 
+        // output values
         $('#output1').text(interest);
         $('#output2').text(m_payment.toFixed(2));
         $('#output').removeClass('hidden');
