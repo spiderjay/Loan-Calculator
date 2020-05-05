@@ -126,11 +126,12 @@ function getInterest(credit,yov,months) {
     return interest;
 }
 
-function getMontlyPayment(loan,rate,term){
+function getMonthlyPayment(loan,rate,term){
     // using original monthly payment calculation supplied
-    var pay = ( ((loan * ((rate / 100) / 12) * ((1 +((rate / 100)/ 12)) ** term)/ (((1 + ((rate / 100)/ 12)) ** term) - 1))) );
-    return pay;
+    //return ( ((loan * ((rate / 100) / 12) * ((1 +((rate / 100)/ 12)) ** term)/ (((1 + ((rate / 100)/ 12)) ** term) - 1))) );
+    return (((loan*((rate/100)/12)*(Math.pow((1+((rate/100)/12)),term))/((Math.pow((1+((rate/100)/12)),term))-1)))); // for IE / old browsers
 }
+
 
 $(document).ready(function(){
     $('#loan-calc').submit(function(e){
@@ -148,11 +149,11 @@ $(document).ready(function(){
         var interest = parseFloat(getInterest(credit,yov,term));
         
         // calculate monthly payment
-        var m_payment = (((loan * ((interest / 100) / 12) * ((1 +((interest / 100)/ 12)) ** term)/ (((1 + ((interest / 100)/ 12)) ** term) - 1))));
+        var m_payment = getMonthlyPayment(loan,interest,term);
 
         // output values
         $('#output1').text(interest);
-        $('#output2').text(m_payment.toFixed(2));
+        $('#output2').text(m_payment.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
         $('#output').removeClass('hidden');
     });
 
